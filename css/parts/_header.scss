@@ -1,0 +1,141 @@
+.header{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background-color: $white;
+	color: $color-font;
+	font-size: 14px;
+	font-weight: 700;
+	position: relative;
+	width: 100%;
+	padding-top: 0;
+	padding-bottom: 0;
+}
+
+.logo{
+	padding:  14px 0;	
+	flex-basis: 60px;
+
+	&__link{
+		outline: none;
+	}
+}
+
+.nav{
+
+	display: flex;
+
+	&__list{
+		position: absolute;
+		right: -100%;
+		top: 100%;
+		padding: 40px 0;
+		background-color: $white;
+		width: 0;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		transition-duration: 1s;
+		z-index: 20;
+		@media (min-width: 768px) {
+			position: static;
+			flex-direction: row;
+			width: 100%;
+			padding: 0;
+		}
+	}
+
+	&__item{
+		position: relative;
+		cursor: pointer;
+		white-space: nowrap;
+		margin: 7px 0 7px 14px;
+		font-size: 14px;
+
+		&::after{
+			content: "";
+			position: absolute;
+			bottom: -8px;
+			width: 3px;
+			height: 1.5px;
+			background-color: $purple;
+			right: 50%;
+			opacity: 0;
+			transform: translate(-50%, 0);
+			transition-duration: .8s;
+		}
+
+		&:hover{
+			color: $purple;
+			&:after{
+				transform: scaleX(10);
+				opacity: 1;
+			}
+		}
+	}	
+}
+
+.checker{
+	position: relative;
+	cursor: pointer;
+
+	@media (min-width: 768px) {
+		display: none;
+	}
+
+	&__menu{
+		display: block;
+		width: $menu-line-width;
+		height: 25px;
+	}
+	
+	&__menu::after,
+	&::before,
+	&::after{
+		position: absolute;
+		background-color: $purple;
+		width: $menu-line-width;
+		height: $menu-line-height;
+		content: "";
+		@extend %centre-block;
+		border-radius: 2px;
+	}
+	
+	&::before{
+		top: 0;	
+		transition-duration: .5s;	
+	}
+	
+	&::after{
+		top: 100%;
+		transition-duration: .5s;	
+	}
+}
+
+#checker{
+	visibility: hidden;
+	&:checked{
+		~ .checker{
+			.checker__menu{
+				opacity: 0;
+			}
+			&::before{
+				top: 50%;
+				left: 0;
+				transform: rotate(45deg);
+				
+			}
+
+			&::after{
+				top: 50%;
+				left: 0;
+				transform: rotate(-45deg);
+			}
+		}
+
+		~ .nav__list{
+			width: 100%;
+			right: 0;
+		}
+	}
+}

@@ -1,0 +1,18 @@
+
+.btn{
+	padding: 14px 10px;
+	margin: 15px 30px 20px;
+	font-weight: 700;
+	border: none;
+	outline: 0;
+	background-color: $button-submit;
+	color: $white;
+	box-shadow: 2px 2px 4px $light-grey;
+	transition-duration: .5s;
+	cursor: pointer;
+
+	&:hover{
+		box-shadow: 2px 2px 5px $darck-grey;
+		text-shadow: 2px 2px 3px $darck-grey;
+	}
+}

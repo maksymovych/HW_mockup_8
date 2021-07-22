@@ -1,0 +1,12 @@
+.body-proj::before{
+	content: "";
+	position: absolute;
+	top: 1px;
+    left: 18px;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 0 18px 12px 18px;
+	border-color: transparent transparent grey transparent;
+	transform: translate(0, -100%);
+}

@@ -1,0 +1,46 @@
+.info{
+	position: relative;
+	object-fit: cover;
+	color: $white;
+	opacity: .7;
+	
+	&::after{
+		@extend %overlay;
+		background-color: rgba(29, 44, 248, 0.822);
+	}
+	
+	&__wrapper{
+		width: 100%;
+		text-align: center;
+		@media (min-width: 570px) {
+			display: flex;
+			flex-wrap: wrap;
+			align-items: flex-start;
+			justify-content: center;
+		}
+	}
+
+	&__img{
+		width: 70px;
+		height: 70px;
+		margin: 0 auto 10px;
+		
+		&::after{
+			content: url("../images/circle.png");
+			top: 0;
+			transform: scale(.7);
+		}
+	}
+
+	&__block{
+		
+		@media (min-width: 570px) {
+			flex-basis: 50%;
+		}
+
+		@media (min-width: 768px) {
+			flex-basis: 25%;
+		
+		}
+	}
+}
